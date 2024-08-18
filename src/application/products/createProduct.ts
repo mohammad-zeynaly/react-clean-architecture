@@ -1,5 +1,5 @@
 import { Product } from "../../domain/product";
-import { useLocalStorageMange } from "../../services/storageAdapter";
+import { useLocalStorageMange } from "../../adaptor/storageAdapter";
 import { productData } from "../../../public/assets/data";
 
 export const useCreateProduct = () => {

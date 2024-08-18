@@ -1,4 +1,4 @@
-import { fakeApi } from "./api";
+import { fakeApi } from "../services/api";
 
 export function useAuth() {
   return {
