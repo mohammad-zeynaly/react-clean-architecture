@@ -1,14 +1,13 @@
 import { Product } from "../../domain/product";
-import { useLocalStorageMange } from "../../adaptor/storageAdapter";
+import { localStorageMange } from "../../adaptor/storageAdapter";
 import { productData } from "../../../public/assets/data";
 
 export const useCreateProduct = () => {
-  const { getLocalStorage, setLocalStorage } =
-    useLocalStorageMange<Product[]>();
+  const { getLocalStorage, setLocalStorage } = localStorageMange;
   const oldProducts = getLocalStorage("products");
 
   const createProduct = (newProduct: Product) => {
-    setLocalStorage("products", [...oldProducts, newProduct]);
+    setLocalStorage<Product[]>("products", [...oldProducts, newProduct]);
     alert("آگهی اضافه شد");
     // convert navigate()
     window.location.href = "/products";
@@ -18,14 +17,13 @@ export const useCreateProduct = () => {
 };
 
 export const useSetProductsToLocalStorage = () => {
-  const { getLocalStorage, setLocalStorage } =
-    useLocalStorageMange<Product[]>();
+  const { getLocalStorage, setLocalStorage } = localStorageMange;
   const setProducts = () => {
     const oldProducts = getLocalStorage("products") || [];
     if (oldProducts?.length > 0) {
-      setLocalStorage("products", [...oldProducts]);
+      setLocalStorage<Product[]>("products", [...oldProducts]);
     } else {
-      setLocalStorage("products", [...productData]);
+      setLocalStorage<Product[]>("products", [...productData]);
       window.location.reload();
     }
   };

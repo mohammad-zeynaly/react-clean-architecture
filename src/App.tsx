@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { useStore } from "./contexts/store";
+import { useStore } from "./application/contexts/store";
 import { useSetProductsToLocalStorage } from "./application/products/createProduct";
 import Header from "./ui/components/shared/layouts/header/Header";
 
